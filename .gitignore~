@@ -1,6 +1,6 @@
 # Symfony directories
 vendor/*
-*/logs/*
-*/cache/*
+app/logs/*
+app/cache/*
 web/uploads/*
 web/bundles/*
