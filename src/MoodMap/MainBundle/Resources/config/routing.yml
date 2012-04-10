@@ -1,3 +1,0 @@
-MoodMapMainBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MoodMapMainBundle:Default:index }
