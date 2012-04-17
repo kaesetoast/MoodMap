@@ -21,6 +21,8 @@ body {
 }
 
 #searchFieldWrapper {
+	position: absolute;
+	top: 0px;
 	margin: -3px 0px 0px -3px;
 	padding: 0px;
 	width: 177px;
@@ -31,6 +33,9 @@ body {
 	-webkit-border-radius: 5px; /* Safari, Chrome */
 	-khtml-border-radius: 5px; /* Konqueror */
 	border-radius: 5px; /* CSS3 */
+	background-image: url(../images/map/searchFieldGrip.png);
+	background-repeat: no-repeat;
+	background-position: right center;
 }
 
 #searchFieldInput {
