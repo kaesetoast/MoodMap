@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
         	new Mopa\BootstrapBundle\MopaBootstrapBundle(),
             new MoodMap\MainBundle\MoodMapMainBundle(),
+            new MoodMap\MapBundle\MoodMapMapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
