@@ -8,4 +8,5 @@ class MapController extends Controller {
 	public function indexAction() {
 		return $this->render('MoodMapMapBundle:Map:index.html.twig');
 	}
+	
 }
