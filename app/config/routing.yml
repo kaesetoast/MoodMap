@@ -1,6 +1,6 @@
 MoodMapMapBundle:
     resource: "@MoodMapMapBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /map
 
 MoodMapMainBundle:
     resource: "@MoodMapMainBundle/Resources/config/routing.yml"

@@ -1,0 +1,3 @@
+map:
+    pattern: /map
+    defaults: { _controller: MoodMapMapBundle:Map:index }
