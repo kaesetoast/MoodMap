@@ -1,1 +1,11 @@
 {% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/map.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div id="wrapper">
+	<div id="grid"></div>
+</div>
+{% endblock %}
