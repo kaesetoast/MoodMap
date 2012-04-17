@@ -1,3 +1,5 @@
-MoodMapMapBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MoodMapMapBundle:Default:index }
+search:
+    pattern:  /search/{color}/{keyword}
+    defaults: { _controller: MoodMapMapBundle:Map:search }
+    requirements:
+        _method: POST
