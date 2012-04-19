@@ -2,6 +2,9 @@ parameters:
 #    mood_map_map.example.class: MoodMap\MapBundle\Example
 
 services:
+    map_service:
+        class: MoodMap\MapBundle\Services\MapService
+
 #    mood_map_map.example:
 #        class: %mood_map_map.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
