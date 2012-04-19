@@ -17,18 +17,16 @@ class MapController extends Controller {
 		$response = new Response(json_encode($this));
 		$response->headers
 				->set("Content-Type", "application/json", "charset=utf-8");
-
 		return $response;
 	}
-	
-	public function createMapAction () {
+
+	public function createMapAction() {
 		$mapService = $this->get("map_service");
-		
+
 		$response = new Response(json_encode($this));
 		$response->setContent($mapService->createImage());
 		$response->headers
-		->set("Content-Type", "application/json", "charset=utf-8");
-		
+				->set("Content-Type", "application/json", "charset=utf-8");
 		return $response;
 	}
 }
