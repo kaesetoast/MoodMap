@@ -19,4 +19,13 @@ class MapController extends Controller {
 
 		return $response;
 	}
+	
+	public function createMapAction () {
+		$response = new Response(json_encode($this));
+		
+		$response->headers
+		->set("Content-Type", "application/json", "charset=utf-8");
+		
+		return $response;
+	}
 }

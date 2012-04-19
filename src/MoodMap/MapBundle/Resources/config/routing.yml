@@ -3,3 +3,7 @@ search:
     defaults: { _controller: MoodMapMapBundle:Map:search }
     requirements:
         _method: POST
+
+createmap:
+    pattern: /createmap/
+    defaults: { _controller: MoodMapMapBundle:Map:createMap }
