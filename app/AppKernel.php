@@ -20,6 +20,8 @@ class AppKernel extends Kernel
         	new Mopa\BootstrapBundle\MopaBootstrapBundle(),
             new MoodMap\MainBundle\MoodMapMainBundle(),
             new MoodMap\MapBundle\MoodMapMapBundle(),
+        	new FOS\UserBundle\FOSUserBundle(),
+            new MoodMap\UserBundle\MoodMapUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
