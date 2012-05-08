@@ -1,11 +1,8 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
-
-{% block fos_user_content %}
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
 
-<form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
+<form name="modalform" class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
 	<fieldset>
 		<legend>Please type in your credentials</legend>
 		
@@ -30,12 +27,7 @@
 	    	</div>
 		</div>
 	    
-	    <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-	
 	    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 	    	
 	</fieldset>
 </form>
-{% endblock fos_user_content %}
