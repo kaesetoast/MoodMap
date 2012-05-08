@@ -6,3 +6,4 @@ web/uploads/*
 web/bundles/*
 .project
 .settings
+.idea
