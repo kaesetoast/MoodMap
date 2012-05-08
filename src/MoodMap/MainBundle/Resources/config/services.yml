@@ -2,8 +2,9 @@ parameters:
 #    mood_map_main.example.class: MoodMap\MainBundle\Example
 
 services:
-    map_service:
+    modal_service:
         class: MoodMap\MainBundle\Services\ModalService
+        arguments: ['@service_container']
 
 services:
 #    mood_map_main.example:
