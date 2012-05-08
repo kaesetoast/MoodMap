@@ -10,6 +10,11 @@ body {
 	width: 100%;
 }
 
+.navbar-fixed-top {
+    top: auto;
+    bottom: 0;
+}
+
 #wrapper {
 	padding: 0px 11px;
 }
