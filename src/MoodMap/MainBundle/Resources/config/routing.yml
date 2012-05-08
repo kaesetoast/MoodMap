@@ -1,3 +1,7 @@
 map:
     pattern: /map
     defaults: { _controller: MoodMapMapBundle:Map:index }
+
+get_modal_content:
+    pattern:  /getmodalcontent/{key}
+    defaults: { _controller: MoodMapMainBundle:Main:getModalContent }

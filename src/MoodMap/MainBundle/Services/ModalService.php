@@ -4,7 +4,7 @@ namespace MoodMap\MainBundle\Services;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ModalService {
-	const PATH = "/MoodMap/src/MoodMap/MainBundle/Resources/views/Util/ModalContents";
+	const PATH = "MoodMapMainBundle:Util:";
 	const LOGIN_MODAL_CONTENT = "login_modal_content.html.twig";
 	
 	private $container;
@@ -14,8 +14,8 @@ class ModalService {
 	}
 	
 	public function getModalContent($key) {
-		$twigService = $this->container->get("twig");
+		$twigService = $this->container->get("templating");
 
-		print_r($twigService);
+        return $twigService->renderResponse($this::PATH.$key);
 	}
 }
