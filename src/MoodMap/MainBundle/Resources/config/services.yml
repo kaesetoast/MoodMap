@@ -5,3 +5,6 @@ services:
     authentication_handler:
         class: MoodMap\MainBundle\Handler\AuthenticationHandler
         arguments:  [@router]
+
+    alert_service:
+        class: MoodMap\MapBundle\Services\AlertService

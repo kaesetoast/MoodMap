@@ -10,5 +10,5 @@
 namespace MoodMap\MainBundle\Services;
 
 class AlertService {
-    
+
 }
