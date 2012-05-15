@@ -1,6 +1,7 @@
 {% if error %}
-<div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-{% endif %}
+{{ error|trans({}, 'FOSUserBundle') }}
+
+{% else %}
 
 <form name="modalform" class="form-inline" action="{{ path("fos_user_security_check") }}" method="post">
     <input type="text" class="input-small" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" id="username"
@@ -17,3 +18,4 @@
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 
 </form>
+{% endif %}
