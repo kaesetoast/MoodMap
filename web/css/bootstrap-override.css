@@ -24,3 +24,7 @@ input {
     background-image: linear-gradient(top, #3c3c3c, #1b181c);
     background-repeat: repeat-x;
 }
+
+#modal-wrapper #modal-alert {
+    margin: 0px 15px;
+}

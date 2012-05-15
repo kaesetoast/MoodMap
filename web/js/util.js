@@ -24,15 +24,31 @@ var Util = {
                 if (response.success) {
                     window.location = response.url;
                 } else {
-                    if (!$("#modal-alert").length > 0) {
-                        $($(".modal-body")[0]).prepend("<div id='modal-alert' class='alert'>" +
-                            "<button class='close' data-dismiss='alert'>×</button><div id='alert-message'></div></div>");
-                    }
-                    $("#modal-alert").addClass("alert-error");
-                    $($("#alert-message")[0]).text(response.message);
-                    $("#modal-alert").show();
+                    Util.Alert.invoke(response.message, Util.Alert.ERROR_ALERT, true);
                 }
             });
         }
-	}	
+	},
+
+    Alert: {
+
+        ERROR_ALERT: "alert-error",
+        SUCCESS_ALERT: "alert-success",
+        INFO_ALERT: "alert-info",
+
+        invoke: function(message, type, modal) {
+            if (type != Util.Alert.ERROR_ALERT && type != Util.Alert.SUCCESS_ALERT && Util.Alert.INFO_ALERT) {
+                throw "unsupported alert type!";
+            }
+            if (modal != true) {
+                var alertWindow = $("#" + type);
+            } else {
+                var alertWindow = $("#modal-alert");
+                alertWindow.addClass(type);
+            }
+            var messageBox = $($(".alert-message", alertWindow)[0]);
+            messageBox.text(message);
+            alertWindow.show();
+        }
+    }
 };
