@@ -11,3 +11,9 @@ services:
         class: MoodMap\UserBundle\Security\Provider\MoodProvider
         public: false
         arguments: ["@fos_user.user_manager"]
+
+    moodmap_user.registration.form.type:
+            class: MoodMap\UserBundle\Form\Type\RegistrationFormType
+            arguments: [%fos_user.model.user.class%]
+            tags:
+                - { name: form.type, alias: moodmap_user_registration }

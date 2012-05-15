@@ -4,15 +4,15 @@
 {% else %}
 
 <form name="modalform" class="form-inline" action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="text" class="input-small" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" id="username"
+    <input type="text" class="input-small" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username"
            name="_username" value="{{ last_username }}"/>
 
-    <input type="password" class="input-small" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" id="password"
+    <input type="password" class="input-small" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" id="password"
            name="_password"/>
 
     <label class="checkbox">
         <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-        {{ 'Remember me'|trans({}, 'FOSUserBundle') }}
+        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
     </label>
 
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
