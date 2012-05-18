@@ -6,6 +6,17 @@ var Profile = {
                 filter:"div",
                 selected:Profile.MapColorSquares.selectedListener
             });
+
+            //TODO: Diese Werte müssen aus der DB kommen
+            $(".ui-selectee").css("background-color", "rgb(127, 127, 127)");
+
+            // hover-effect for Squares
+            $(".ui-selectee").mouseenter(
+                function () {
+                    $(this).addClass("map-colors-hover");
+                }).mouseleave(function () {
+                    $(this).removeClass("map-colors-hover");
+                });
         },
 
         selectedListener:function (event, ui) {
@@ -22,10 +33,6 @@ var Profile = {
 
     MapColorPicker:{
         init:function () {
-            /*
-             * TODO: Diese Werte müssen aus der DB kommen
-             */
-            $(".ui-selectee").css("background-color", "rgb(127, 127, 127)");
             $("#red, #green, #blue").slider({
                 orientation:"horizontal",
                 range:"min",
