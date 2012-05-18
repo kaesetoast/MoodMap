@@ -1,11 +1,33 @@
-#red, #green, #blue {
-    width: 300px;
-    margin-bottom: 20px;
+/*
+ * Selectable
+ */
+
+#map-colors .selectable {
+    list-style: none;
+    margin: 0;
 }
 
-#preview {
-    width: 120px;
-    height: 100px;
+#map-colors .selectable li .ui-selectee {
+    border: 1px solid;
+    width: 57px;
+    height: 57px;
+    margin: 3px;
+}
+
+#map-colors .selectable li .ui-selected {
+    border: 1px solid;
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
+}
+
+/*
+ * Slide
+ */
+
+#red, #green, #blue {
+    width: auto;
+    margin-bottom: 10px;
 }
 
 #red .ui-slider-range {
