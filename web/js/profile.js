@@ -36,9 +36,3 @@ var Profile = {
 $(document).ready(function () {
     Profile.init();
 });
-
-
-
-
-
-
