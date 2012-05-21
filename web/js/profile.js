@@ -2,7 +2,7 @@ var Profile = {
 
     MapColorSquares:{
         init:function () {
-            $(".selectable", "#map-colors").selectable({
+            $("#map-colors > .selectable").selectable({
                 filter:"div",
                 selected:Profile.MapColorSquares.selectedListener
             });
@@ -41,6 +41,9 @@ var Profile = {
                 slide:Profile.MapColorPicker.updatePreview,
                 change:Profile.MapColorPicker.updatePreview
             });
+            $("#red > .ui-slider-handle",
+                "#green > .ui-slider-handle",
+                "#blue > .ui-slider-handle").bind("touchmove", Profile.MapColorPicker.updateSliderHandle);
         },
 
         updateSlider:function (red, green, blue) {
@@ -55,6 +58,30 @@ var Profile = {
                 blue = $("#blue").slider("value"),
                 hex = Profile.MapColorPicker.toHex(red, green, blue);
             $(".ui-selected").css("background-color", "#" + hex);
+        },
+
+        /* iPad-Optimierung
+         * @author Lars Ebert
+         * http://www.advitum.de/blog/2011/09/nutzeroberflachen-furs-ipad-jquery-ui-slider/ [Stand 21.05.2012]
+         * TODO: Testen!!
+         */
+        updateSliderHandle:function (event, ui) {
+            // x- und y-Position des Fingers, jQuery unterstützt diese Eigenschaft noch nicht, deshalb brauchen wir das Original-Event
+            var e = event.originalEvent;
+
+            // Position des Sliders
+            var left = $(ui).parent().offset().left;
+            var right = left + $(ui).parent().width();
+
+            // Minimaler und maximaler Wert des Sliders
+            var min = $(ui).parent().slider('option', 'min');
+            var max = $(ui).parent().slider('option', 'max');
+
+            // Mithilfe von einfachem Dreisatz können wir berechnen, welchen Wert die neue Position ergibt
+            var newvalue = min + (e.touches.item(0).clientX - left) / (right - left) * (max - min);
+
+            // Jetzt setzen wir den neuen Wert
+            $(ui).parent().slider('value', newvalue);
         },
 
         toHex:function (red, green, blue) {
