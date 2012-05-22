@@ -9,8 +9,6 @@ var Profile = {
 
             // Farben aus der DB
             $.post("/getmapcolors", function (mapColors) {
-                console.log(mapColors);
-
                 $.each(mapColors, function (index, value) {
                     $("#preview" + index).css("background-color", "#" + value);
                 })
@@ -27,13 +25,9 @@ var Profile = {
 
         selectedListener:function (event, ui) {
             var bgColor = $("#" + ui.selected.id).css("background-color");
+            var values = Profile.MapColorPicker.parseRGBAString(bgColor);
 
-            var values = /(.*?)rgb\((\d+), (\d+), (\d+)\)/.exec(bgColor);
-            var red = parseInt(values[2]);
-            var green = parseInt(values[3]);
-            var blue = parseInt(values[4]);
-
-            Profile.MapColorPicker.updateSlider(red, green, blue);
+            Profile.MapColorPicker.updateSlider(values["red"], values["green"], values["blue"]);
         }
     },
 
@@ -98,6 +92,18 @@ var Profile = {
                 }
             });
             return hex.join("").toUpperCase();
+        },
+
+        parseRGBAString:function (rgba) {
+            var res = new Array();
+
+            var values = /(.*?)rgb\((\d+), (\d+), (\d+)\)/.exec(rgba);
+
+            res["red"] = parseInt(values[2]);
+            res["green"] = parseInt(values[3]);
+            res["blue"] = parseInt(values[4]);
+
+            return res;
         }
     },
 
@@ -107,13 +113,9 @@ var Profile = {
         //TODO: hart?
         for (var i = 0; i < 6; i++) {
             var bgColor = $("#preview" + i).css("background-color");
+            var values = Profile.MapColorPicker.parseRGBAString(bgColor);
 
-            var values = /(.*?)rgb\((\d+), (\d+), (\d+)\)/.exec(bgColor);
-            var red = parseInt(values[2]);
-            var green = parseInt(values[3]);
-            var blue = parseInt(values[4]);
-
-            mapColors.push(Profile.MapColorPicker.toHex(red, green, blue));
+            mapColors.push(Profile.MapColorPicker.toHex(values["red"], values["green"], values["blue"]));
         }
 
         $.post("/updatemapcolors", {mapcolors:mapColors}, function (data) {
