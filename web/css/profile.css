@@ -8,6 +8,7 @@
 }
 
 #map-colors .selectable li .ui-selectee {
+    border: 1px solid transparent;
     width: 57px;
     height: 57px;
     margin: 3px;
