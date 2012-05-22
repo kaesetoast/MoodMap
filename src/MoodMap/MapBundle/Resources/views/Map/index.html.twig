@@ -1,11 +1,9 @@
 {% extends '::base.html.twig' %}
 
-{% block stylesheets %}
-<link href="{{ asset('css/map.css') }}" rel="stylesheet">
-{% endblock %}
-
 {% block body %}
-<div id="searchFieldWrapper">
-    <input type="text" id="searchFieldInput">
+<div id="grid">
+    <div id="searchFieldWrapper">
+        <input type="text" id="searchFieldInput">
+    </div>
 </div>
 {% endblock %}
