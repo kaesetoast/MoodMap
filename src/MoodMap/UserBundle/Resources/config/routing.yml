@@ -1,3 +1,11 @@
 MoodMapUserBundle_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: MoodMapUserBundle:Default:index }
+
+updatemapcolors:
+    pattern:  /updatemapcolors
+    defaults: { _controller: MoodMapUserBundle:Profile:updateMapColors }
+
+getmapcolors:
+    pattern:  /getmapcolors
+    defaults: { _controller: MoodMapUserBundle:Profile:getMapColors }
