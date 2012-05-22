@@ -7,8 +7,14 @@ var Profile = {
                 selected:Profile.MapColorSquares.selectedListener
             });
 
-            //TODO: Diese Werte müssen aus der DB kommen
-            $(".ui-selectee").css("background-color", "rgb(127, 127, 127)");
+            // Farben aus der DB
+            $.post("/getmapcolors", function (mapColors) {
+                console.log(mapColors);
+
+                $.each(mapColors, function (index, value) {
+                    $("#preview" + index).css("background-color", "#" + value);
+                })
+            });
 
             // hover-effect for Squares
             $(".ui-selectee").mouseenter(
