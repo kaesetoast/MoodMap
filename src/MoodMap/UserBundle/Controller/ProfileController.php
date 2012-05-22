@@ -61,7 +61,7 @@ class ProfileController extends ContainerAware
     public function updateMapColorsAction() {
         $em = $this->container->get('doctrine')->getEntityManager();
         $user = $this->container->get('security.context')->getToken()->getUser();
-        $user->setMapColors(array("red", "blue", "green", "violet", "black", "white"));
+        $user->setMapColors(array("000000", "0000FF", "00FF00", "FF0000", "00FFFF", "FFFFFF"));
         $em->persist($user);
         $em->flush();
 
