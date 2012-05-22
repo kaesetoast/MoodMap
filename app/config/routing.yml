@@ -12,7 +12,7 @@ MoodMapMainBundle:
 
 _welcome:
     pattern: /
-    defaults: { _controller: MoodMapMainBundle:Default:index }
+    defaults: { _controller: MoodMapMapBundle:Map:index }
 
 # FOSUser
 fos_user_security:

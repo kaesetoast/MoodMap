@@ -1,22 +1,33 @@
+{% extends '::base.html.twig' %}
+{% block body %}
 {% if error %}
 {{ error|trans({}, 'FOSUserBundle') }}
 
 {% else %}
 
-<form name="modalform" class="form-inline" action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="text" class="input-small" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username"
-           name="_username" value="{{ last_username }}"/>
+<form action="{{ path("fos_user_security_check") }}" method="post">
 
-    <input type="password" class="input-small" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" id="password"
-           name="_password"/>
+    <fieldset>
 
-    <label class="checkbox">
-        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
-    </label>
+        <input type="text" class="input-small" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username"
+               name="_username" value="{{ last_username }}"/>
 
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+        <input type="password" class="input-small" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" id="password"
+               name="_password"/>
+
+        <label class="checkbox">
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+            {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+        </label>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+    </fieldset>
+
+    <button type="submit" value="Login"></button>
 
 </form>
+
 <p><a href="{{ path('fos_user_registration_register') }}">You don't have an account, yet? Sign up right now »</a></p>
 {% endif %}
+{% endblock %}

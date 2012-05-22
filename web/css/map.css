@@ -5,29 +5,16 @@ html,body {
 	padding: 0px;
 }
 
-body {
-	background-color: black;
-	width: 100%;
-}
-
-.navbar-fixed-top {
-    top: auto;
-    bottom: 0;
-}
-
-#wrapper {
-	padding: 0px 11px;
-}
-
-#grid {
+.ui-content {
 	background-image: url(../images/map/map-background.png);
 	width: 100%;
 	height: 357px;
+    padding: 0;
 }
 
 #searchFieldWrapper {
 	position: absolute;
-	top: 0px;
+	top: 43px;
 	margin: -3px 0px 0px -3px;
 	padding: 0px;
 	width: 177px;
@@ -41,6 +28,7 @@ body {
 	background-image: url(../images/map/searchFieldGrip.png);
 	background-repeat: no-repeat;
 	background-position: right center;
+    z-index: 99999999999;
 }
 
 #searchFieldInput {
