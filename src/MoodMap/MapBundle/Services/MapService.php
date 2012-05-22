@@ -1,14 +1,26 @@
 <?php
 namespace MoodMap\MapBundle\Services;
-class MapService {
 
-	public $name;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-	public function __construct() {
-		$this->name = "Hello";
-	}
+class MapService
+{
+    private $container;
 
-	public function createImage() {
-		return $this->name;
-	}
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+    public function createImage()
+    {
+        $user = $this->container->get("security.context")->getToken()->getUser();
+        $res = "";
+
+        foreach ($user->getMapColors() as $color) {
+            $res .= $color . " ";
+        }
+
+        return $res;
+    }
 }

@@ -4,6 +4,7 @@ parameters:
 services:
     map_service:
         class: MoodMap\MapBundle\Services\MapService
+        arguments: ['@service_container']
 
 #    mood_map_map.example:
 #        class: %mood_map_map.example.class%
