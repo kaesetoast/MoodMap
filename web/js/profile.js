@@ -109,7 +109,7 @@ var Profile = {
             mapColors.push($("#preview" + i).css("background-color"));
         }
 
-        $.post("/updatemapcolors", mapColors, function (data) {
+        $.post("/updatemapcolors", {mapcolors: mapColors}, function (data) {
             console.log(data);
         });
     }
