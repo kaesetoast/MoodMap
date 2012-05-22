@@ -99,6 +99,19 @@ var Profile = {
             });
             return hex.join("").toUpperCase();
         }
+    },
+
+    setMapColors:function () {
+        var mapColors = new Array();
+
+        //TODO: hart?
+        for (var i = 0; i < 6; i++) {
+            mapColors.push($("#preview" + i).css("background-color"));
+        }
+
+        $.post("/updatemapcolors", mapColors, function (data) {
+            console.log(data);
+        });
     }
 }
 
