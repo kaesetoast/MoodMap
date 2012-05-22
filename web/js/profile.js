@@ -106,10 +106,17 @@ var Profile = {
 
         //TODO: hart?
         for (var i = 0; i < 6; i++) {
-            mapColors.push($("#preview" + i).css("background-color"));
+            var bgColor = $("#preview" + i).css("background-color");
+
+            var values = /(.*?)rgb\((\d+), (\d+), (\d+)\)/.exec(bgColor);
+            var red = parseInt(values[2]);
+            var green = parseInt(values[3]);
+            var blue = parseInt(values[4]);
+
+            mapColors.push(Profile.MapColorPicker.toHex(red, green, blue));
         }
 
-        $.post("/updatemapcolors", {mapcolors: mapColors}, function (data) {
+        $.post("/updatemapcolors", {mapcolors:mapColors}, function (data) {
             console.log(data);
         });
     }
