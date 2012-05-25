@@ -62,11 +62,6 @@
     target=/bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.1
 
-[MopaBootstrapBundle]
-    git=http://github.com/phiamo/MopaBootstrapBundle.git
-    target=/bundles/Mopa/BootstrapBundle
-    version=refs/remotes/origin/v2.x_sf2.0
-
 [FOSUserBundle]
     git=git://github.com/FriendsOfSymfony/FOSUserBundle.git
     target=bundles/FOS/UserBundle

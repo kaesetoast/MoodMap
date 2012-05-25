@@ -14,7 +14,6 @@ $loader->registerNamespaces(array(
     'Monolog'          => __DIR__.'/../vendor/monolog/src',
     'Assetic'          => __DIR__.'/../vendor/assetic/src',
     'Metadata'         => __DIR__.'/../vendor/metadata/src',
-	'Mopa'			   => __DIR__.'/../vendor/bundles',
 	'FOS'			   => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
