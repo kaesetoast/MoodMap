@@ -8,11 +8,13 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\Response;
 
+use FOS\UserBundle\Controller\ProfileController as BaseController;
+
 /**
  * Controller managing the user profile
  *
  */
-class ProfileController extends ContainerAware
+class ProfileController extends BaseController
 {
     /**
      * Show the user
@@ -24,7 +26,7 @@ class ProfileController extends ContainerAware
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.'.$this->container->getParameter('fos_user.template.engine'), array('user' => $user));
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.' . $this->container->getParameter('fos_user.template.engine'), array('user' => $user));
     }
 
     /**
@@ -48,7 +50,7 @@ class ProfileController extends ContainerAware
         }
 
         return $this->container->get('templating')->renderResponse(
-            'FOSUserBundle:Profile:edit.html.'.$this->container->getParameter('fos_user.template.engine'),
+            'FOSUserBundle:Profile:edit.html.' . $this->container->getParameter('fos_user.template.engine'),
             array('form' => $form->createView(), 'theme' => $this->container->getParameter('fos_user.template.theme'))
         );
     }
@@ -58,7 +60,8 @@ class ProfileController extends ContainerAware
         $this->container->get('session')->setFlash($action, $value);
     }
 
-    public function updateMapColorsAction() {
+    public function updateMapColorsAction()
+    {
         $request = $this->container->get('request')->request;
         $em = $this->container->get('doctrine')->getEntityManager();
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -72,7 +75,8 @@ class ProfileController extends ContainerAware
         return $response;
     }
 
-    public function getMapColorsAction() {
+    public function getMapColorsAction()
+    {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $response = new Response(json_encode($user->getMapColors()));
         $response->headers
