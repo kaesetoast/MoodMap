@@ -7,3 +7,5 @@ web/bundles/*
 .project
 .settings
 .idea
+web/images/map/map-background.png
+
