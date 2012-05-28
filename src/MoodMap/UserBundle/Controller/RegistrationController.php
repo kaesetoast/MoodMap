@@ -21,9 +21,8 @@ use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
 class RegistrationController extends BaseController
 {
-
     /*
-    * TODO: Diese Methode soll zusätzlich die mapColors setzen!
+    * TODO: Diese Methode sollte zusätzlich die mapColors setzen!
     */
     public function registerAction()
     {
