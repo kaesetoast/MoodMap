@@ -15,16 +15,19 @@ class MapService
     public function createImage()
     {
         $user = $this->container->get("security.context")->getToken()->getUser();
+        $mapColors = $user->getMapColors();
 
         $image = new \Imagick();
         $image->newimage(60, 360, new \ImagickPixel("transparent"));
         $draw = new \ImagickDraw();
 
-        $draw->setFillColor("#FF0000");
-        $draw->rectangle(10, 10, 50, 50);
+        for ($i = 0; $i < count($mapColors); $i++) {
+            // y-value of the top-left corner
+            $y = 3 + $i * 60;
 
-        foreach ($user->getMapColors() as $color) {
-            // TODO
+            $draw->setFillColor("#" . $mapColors[$i]);
+            // TODO: incl. the last line of pixels?
+            $draw->rectangle(3, $y, 60, $y + 56);
         }
 
         $image->drawimage($draw);
