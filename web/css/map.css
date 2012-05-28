@@ -5,10 +5,6 @@ html,body {
 	padding: 0px;
 }
 
-.ui-content {
-	width: 100%;
-}
-
 #grid {
     width: 100%;
     background-image: url(../images/map/map-background.png);
