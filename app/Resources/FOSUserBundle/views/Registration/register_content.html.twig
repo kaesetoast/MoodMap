@@ -3,8 +3,5 @@
 <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"
       class="form-horizontal">
     {{ form_widget(form) }}
-    <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Register</button>
-        <button class="btn">Cancel</button>
-    </div>
+    <input id="submit" type="submit" value="Register" data-role="button" data-theme="b" />
 </form>
