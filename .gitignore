@@ -8,4 +8,5 @@ web/bundles/*
 .settings
 .idea
 web/images/map/map-background.png
+web/images/map/users/*
 
