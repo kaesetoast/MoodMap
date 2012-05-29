@@ -18,6 +18,7 @@
 <div data-role="page">
 
     <div data-role="header" data-position="fixed">
+        {% if app.user %}<a href="#" id="searchSubmit" data-icon="search" class="ui-btn-left">Search</a>{% endif %}
         <h1>{% block headline %}MoodMap{% endblock %}</h1>
         {% if app.user %}<a href="{{ path('fos_user_security_logout') }}" data-icon="delete" class="ui-btn-right">Logout</a>{% endif %}
     </div><!-- /header -->

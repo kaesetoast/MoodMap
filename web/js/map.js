@@ -1,11 +1,11 @@
 Map = {
 	init : function() {
 		$("#searchFieldWrapper").draggable({
-			grid : [ 60, 60 ],
-			stop : function(event, ui) {
-				Map.search();
-			}
+			grid : [ 60, 60 ]
 		});
+        $("#searchSubmit").bind("click", function(){
+            Map.search();
+        });
 	},
 
 	colors : [ "violet", "red", "orange", "yellow", "green", "blue" ],
@@ -17,9 +17,8 @@ Map = {
 
 	search : function() {
 		var keyword = $("#searchFieldInput").val();
-		$.post("/map/search/" + Map.getColor() + "/" + keyword, function (result) {
-			console.log(result);
-		});
+        $("#searchForm").attr("action", "/map/search/" + Map.getColor() + "/" + keyword);
+        $("#searchForm").submit();
 	}
 };
 $(document).ready(function() {

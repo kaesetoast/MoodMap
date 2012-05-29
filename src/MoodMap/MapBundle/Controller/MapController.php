@@ -17,10 +17,10 @@ class MapController extends Controller
 
     public function searchAction($color, $keyword)
     {
-        $response = new Response(json_encode($this));
-        $response->headers
-            ->set("Content-Type", "application/json", "charset=utf-8");
-        return $response;
+        return $this->render('MoodMapMapBundle:Map:searchResults.html.twig', array(
+            'color' => $color,
+            'keyword' => $keyword
+        ));
     }
 
     public function createMapAction()
