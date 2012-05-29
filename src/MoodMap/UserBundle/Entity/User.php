@@ -27,7 +27,7 @@ class User extends FOSUser
      *
      * @ORM\Column(name="mapColors", type="array")
      */
-    private $mapColors;
+    private $mapColors = array("990033", "FF0033", "FF6600", "FFCC33", "99CC33", "0066FF");
 
 
     /**
