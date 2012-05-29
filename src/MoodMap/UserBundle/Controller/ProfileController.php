@@ -69,7 +69,9 @@ class ProfileController extends BaseController
         $em->persist($user);
         $em->flush();
 
-        $response = new Response(json_encode(array('success' => true)));
+        $mapService = $this->container->get("map_service");
+
+        $response = new Response(json_encode(array('success' => $mapService->createImage())));
         $response->headers
             ->set("Content-Type", "application/json", "charset=utf-8");
         return $response;
