@@ -55,12 +55,12 @@ html,body {
 }
 
 [data-role="content"] {
-    padding-bottom: 70px;
+    /*padding-bottom: 70px;*/
 }
 
 [data-role="footer"] {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
+    /*position: absolute;*/
+    /*bottom: 0px;*/
+    /*left: 0px;*/
+    /*width: 100%;*/
 }
