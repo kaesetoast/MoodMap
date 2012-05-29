@@ -17,10 +17,14 @@ class MapController extends Controller
 
     public function searchAction($color, $keyword)
     {
-        return $this->render('MoodMapMapBundle:Map:searchResults.html.twig', array(
+        return $this->render('MoodMapMapBundle:Map:searchResultList.html.twig', array(
             'color' => $color,
             'keyword' => $keyword
         ));
+    }
+
+    public function showItemAction() {
+        return $this->render('MoodMapMapBundle:Map:showItem.html.twig');
     }
 
     public function createMapAction()

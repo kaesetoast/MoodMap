@@ -7,3 +7,7 @@ search:
 createmap:
     pattern: /createmap/
     defaults: { _controller: MoodMapMapBundle:Map:createMap }
+
+show_item:
+    pattern:  /show
+    defaults: { _controller: MoodMapMapBundle:Map:showItem }

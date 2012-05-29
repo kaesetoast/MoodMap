@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block headerleft %}
+<a href="{{ path('_welcome') }}" data-icon="back" class="ui-btn-left">Back</a>
+{% endblock %}
+
+{% block body %}
+<div class="content-primary">
+    <div data-role="collapsible" data-collapsed="false">
+        <h3>Section 1</h3>
+        <p>I'm the collapsible set content for section B.</p>
+    </div>
+
+    <div data-role="collapsible">
+        <h3>Section 2</h3>
+        <p>I'm the collapsible set content for section B.</p>
+    </div>
+</div><!--/content-primary -->
+{% endblock %}
