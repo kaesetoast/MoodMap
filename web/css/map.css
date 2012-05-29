@@ -6,15 +6,16 @@ html,body {
 }
 
 #grid {
+    position: absolute;
+    left: 0px;
+    top: 43px;
     width: 100%;
-    background-image: url(../images/map/map-background.png);
     height: 357px;
-    margin: -15px;
 }
 
 #searchFieldWrapper {
 	position: absolute;
-	top: 43px;
+	/*top: 43px;*/
 	margin: -3px 0px 0px -3px;
 	padding: 0px;
 	width: 177px;
