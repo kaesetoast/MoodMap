@@ -19,7 +19,7 @@
 
     <div data-role="header" data-position="fixed">
         <h1>{% block headline %}MoodMap{% endblock %}</h1>
-        {% if app.user %}<a href="{{ path('fos_user_security_logout') }}" data-icon="check" class="ui-btn-right">Logout</a>{% endif %}
+        {% if app.user %}<a href="{{ path('fos_user_security_logout') }}" data-icon="delete" class="ui-btn-right">Logout</a>{% endif %}
     </div><!-- /header -->
 
     <div data-role="content">

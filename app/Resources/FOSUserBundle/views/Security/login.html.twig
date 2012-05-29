@@ -9,22 +9,22 @@
 
     <fieldset>
 
-        <input type="text" class="input-small" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username"
-               name="_username" value="{{ last_username }}"/>
+        <label for="_username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-        <input type="password" class="input-small" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" id="password"
-               name="_password"/>
+        <label for="_password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+        <input type="password" id="password" name="_password"/>
 
-        <label class="checkbox">
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-            {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
-        </label>
+        {#<label class="checkbox">#}
+            {#<input type="checkbox" id="remember_me" name="_remember_me" value="on"/>#}
+            {#{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}#}
+        {#</label>#}
+
+        <input id="submit" type="submit" value="Login" data-role="button" data-theme="b" />
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 
     </fieldset>
-
-    <button type="submit" value="Login"></button>
 
 </form>
 
