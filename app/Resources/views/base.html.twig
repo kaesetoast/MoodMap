@@ -13,7 +13,7 @@
     {% block stylesheets %}{% endblock %}
 </head>
 
-<body data-userid="{{ app.user.id }}">
+<body data-userid="{% if app.user %}{{ app.user.id }}{% endif %}">
 
 <div data-role="page">
 
