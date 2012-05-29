@@ -23,11 +23,11 @@ class MapService
 
         for ($i = 0; $i < count($mapColors); $i++) {
             // y-value of the top-left corner
-            $y = 3 + $i * 60;
+            $y = $i * 60;
 
             $draw->setFillColor("#" . $mapColors[$i]);
             // TODO: incl. the last line of pixels?
-            $draw->rectangle(3, $y, 60, $y + 56);
+            $draw->rectangle(0, $y, 56, $y + 56);
         }
 
         $image->drawimage($draw);
