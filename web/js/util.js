@@ -50,5 +50,9 @@ var Util = {
             messageBox.text(message);
             alertWindow.show();
         }
+    },
+
+    getUserId: function() {
+        return $('body').data('userid');
     }
 };

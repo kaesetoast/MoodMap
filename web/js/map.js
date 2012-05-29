@@ -6,6 +6,7 @@ Map = {
         $("#searchSubmit").bind("click", function(){
             Map.search();
         });
+        $("#grid").css("background-image", "url(/images/map/users/" + Util.getUserId() + ".png)");
 	},
 
 	colors : [ "violet", "red", "orange", "yellow", "green", "blue" ],
