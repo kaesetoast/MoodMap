@@ -1,5 +1,9 @@
 {% extends '::base.html.twig' %}
 
+{% block headerleft %}
+<a href="{{ path('_welcome') }}" data-icon="back" class="ui-btn-left">Back</a>
+{% endblock %}
+
 {% block body %}
 <div class="content-primary">
 

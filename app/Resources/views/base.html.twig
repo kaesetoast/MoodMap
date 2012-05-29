@@ -15,12 +15,16 @@
 
 <body data-userid="{% if app.user %}{{ app.user.id }}{% endif %}">
 
-<div data-role="page">
+<div id="page" data-role="page">
 
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" data-id="header">
+        {% block headerleft %}
         {% if app.user %}<a href="#" id="searchSubmit" data-icon="search" class="ui-btn-left">Search</a>{% endif %}
+        {% endblock %}
         <h1>{% block headline %}MoodMap{% endblock %}</h1>
+        {% block headerright %}
         {% if app.user %}<a href="{{ path('fos_user_security_logout') }}" data-icon="delete" class="ui-btn-right">Logout</a>{% endif %}
+        {% endblock %}
     </div><!-- /header -->
 
     <div data-role="content">

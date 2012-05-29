@@ -98,7 +98,7 @@ var Profile = {
     }
 }
 
-$(document).ready(function () {
+$('#page').live('pagecreate',function(event){
     Profile.MapColorSquares.init();
     Profile.MapColorPicker.init();
 });

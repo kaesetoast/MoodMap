@@ -22,6 +22,6 @@ Map = {
         $("#searchForm").submit();
 	}
 };
-$(document).ready(function() {
+$('#page').live('pagecreate',function(event){
 	Map.init();
 });
