@@ -33,6 +33,6 @@ class MapService
         $image->drawimage($draw);
         $image->setImageFormat("png");
 
-        return $image->writeImage("./images/map/map-background.png");
+        return $image->writeImage("./images/map/users/" . $user->getId() . ".png");
     }
 }
