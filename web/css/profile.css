@@ -20,12 +20,3 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(82, 168, 236, 0.6);
     outline: 0 none;
 }
-
-/*
- * MapColorPicker
- */
-
-#red, #green, #blue {
-    width: auto;
-    margin-bottom: 10px;
-}
