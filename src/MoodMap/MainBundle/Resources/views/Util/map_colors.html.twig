@@ -1,7 +1,7 @@
 <div id="map-colors">
     <ul class="selectable">
         <li>
-            <div id="preview0" class="ui-selected"></div>
+            <div id="preview0"></div>
         </li>
         <li>
             <div id="preview1"></div>
@@ -20,9 +20,9 @@
         </li>
     </ul>
 
-    <div id="red"></div>
-    <div id="green"></div>
-    <div id="blue"></div>
+    <input id="red" type="range" min="0" max="255" value="127" data-highlight="true"/>
+    <input id="green" type="range" min="0" max="255" value="127" data-highlight="true"/>
+    <input id="blue" type="range" min="0" max="255" value="127" data-highlight="true"/>
 </div>
 
 <a class="btn btn-primary" href="javascript:Profile.setMapColors()">Save</a>

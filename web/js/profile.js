@@ -33,59 +33,33 @@ var Profile = {
 
     MapColorPicker:{
         init:function () {
-            $("#red, #green, #blue").slider({
-                orientation:"horizontal",
-                range:"min",
-                max:255,
-                value:127,
-                slide:Profile.MapColorPicker.updatePreview,
-                change:Profile.MapColorPicker.updatePreview
-            });
-            $("#red > .ui-slider-handle",
-                "#green > .ui-slider-handle",
-                "#blue > .ui-slider-handle").bind("touchmove", Profile.MapColorPicker.updateSliderHandle);
+            $("#red, #green, #blue").bind("change", Profile.MapColorPicker.updatePreview);
         },
 
         updateSlider:function (red, green, blue) {
-            $("#red").slider("value", red);
-            $("#green").slider("value", green);
-            $("#blue").slider("value", blue);
+            $("#red").attr("value", red);
+            $("#green").attr("value", green);
+            $("#blue").attr("value", blue);
+
+            $("#red, #green, #blue").unbind("change");
+            $("#red, #green, #blue").slider("refresh");
+            $("#red, #green, #blue").bind("change", Profile.MapColorPicker.updatePreview);
         },
 
         updatePreview:function (event, ui) {
-            var red = $("#red").slider("value"),
-                green = $("#green").slider("value"),
-                blue = $("#blue").slider("value"),
+            var red = $("#red").attr("value"),
+                green = $("#green").attr("value"),
+                blue = $("#blue").attr("value"),
                 hex = Profile.MapColorPicker.toHex(red, green, blue);
+
             $(".ui-selected").css("background-color", "#" + hex);
         },
 
-        /* iPad-Optimierung
-         * @author Lars Ebert
-         * http://www.advitum.de/blog/2011/09/nutzeroberflachen-furs-ipad-jquery-ui-slider/ [Stand 21.05.2012]
-         * TODO: Testen!!
-         */
-        updateSliderHandle:function (event, ui) {
-            // x- und y-Position des Fingers, jQuery unterstützt diese Eigenschaft noch nicht, deshalb brauchen wir das Original-Event
-            var e = event.originalEvent;
-
-            // Position des Sliders
-            var left = $(ui).parent().offset().left;
-            var right = left + $(ui).parent().width();
-
-            // Minimaler und maximaler Wert des Sliders
-            var min = $(ui).parent().slider('option', 'min');
-            var max = $(ui).parent().slider('option', 'max');
-
-            // Mithilfe von einfachem Dreisatz können wir berechnen, welchen Wert die neue Position ergibt
-            var newvalue = min + (e.touches.item(0).clientX - left) / (right - left) * (max - min);
-
-            // Jetzt setzen wir den neuen Wert
-            $(ui).parent().slider('value', newvalue);
-        },
-
         toHex:function (red, green, blue) {
-            var hex = [red.toString(16), green.toString(16), blue.toString(16)];
+            var hex = [parseInt(red).toString(16),
+                parseInt(green).toString(16),
+                parseInt(blue).toString(16)];
+
             $.each(hex, function (index, value) {
                 if (value.length === 1) {
                     hex[index] = "0" + value;
