@@ -53,15 +53,3 @@
     width: auto;
     margin-bottom: 10px;
 }
-
-#red .ui-slider-range {
-    background: #ef2929;
-}
-
-#green .ui-slider-range {
-    background: #8ae234;
-}
-
-#blue .ui-slider-range {
-    background: #729fcf;
-}
