@@ -36,4 +36,13 @@ class MapController extends Controller
             ->set("Content-Type", "application/json", "charset=utf-8");
         return $response;
     }
+
+    public function createEmotigrammAction() {
+        $emotigrammService = $this->get("emotigramm_service");
+
+        $response = new Response(json_encode(array('success' => $emotigrammService->createEmotigramm())));
+        $response->headers
+            ->set("Content-Type", "application/json", "charset=utf-8");
+        return $response;
+    }
 }

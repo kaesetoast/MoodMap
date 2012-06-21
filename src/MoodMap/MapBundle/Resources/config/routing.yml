@@ -11,3 +11,7 @@ createmap:
 show_item:
     pattern:  /show
     defaults: { _controller: MoodMapMapBundle:Map:showItem }
+
+createmap:
+    pattern: /createemotigramm/
+    defaults: { _controller: MoodMapMapBundle:Map:createEmotigramm }
