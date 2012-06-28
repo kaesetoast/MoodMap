@@ -17,9 +17,12 @@ class MapController extends Controller
 
     public function searchAction($color, $keyword)
     {
+        $emotigrammService = $this->get("emotigramm_service");
+
         return $this->render('MoodMapMapBundle:Map:searchResultList.html.twig', array(
             'color' => $color,
-            'keyword' => $keyword
+            'keyword' => $keyword,
+            'emotigramm' => $emotigrammService->createEmotigramm()
         ));
     }
 
@@ -32,15 +35,6 @@ class MapController extends Controller
         $mapService = $this->get("map_service");
 
         $response = new Response(json_encode(array('success' => $mapService->createImage())));
-        $response->headers
-            ->set("Content-Type", "application/json", "charset=utf-8");
-        return $response;
-    }
-
-    public function createEmotigrammAction() {
-        $emotigrammService = $this->get("emotigramm_service");
-
-        $response = new Response(json_encode(array('success' => $emotigrammService->createEmotigramm())));
         $response->headers
             ->set("Content-Type", "application/json", "charset=utf-8");
         return $response;

@@ -25,6 +25,6 @@ class EmotigrammService {
             }
         }
 
-        return true;
+        return "EmotigrammService";
     }
 }
