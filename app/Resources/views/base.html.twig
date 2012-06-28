@@ -17,7 +17,7 @@
 
 <div id="page" data-role="page">
 
-    <div data-role="header" data-position="fixed" data-id="header">
+    <div data-role="header" data-position="fixed"  data-id="header">
         {% block headerleft %}
         {% if app.user %}<a href="#" id="searchSubmit" data-icon="search" class="ui-btn-left">Search</a>{% endif %}
         {% endblock %}
@@ -33,7 +33,7 @@
     {% endblock %}
     </div><!-- /content -->
 
-    <div data-role="footer">
+    <div data-role="navbar" data-position="fixed"">
         {% include 'MoodMapMainBundle:Util:navbar.html.twig' %}
     </div><!-- /footer -->
 
