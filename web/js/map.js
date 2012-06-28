@@ -9,17 +9,16 @@ Map = {
         $("#grid").css("background-image", "url(/images/map/users/" + Util.getUserId() + ".png)");
 	},
 
-	colors : [ "violet", "red", "orange", "yellow", "green", "blue" ],
-
-	getColor : function() {
-		var offset = $("#searchFieldWrapper").offset().top + 3;
-		return Map.colors[offset / 60];
-	},
-
 	search : function() {
-		var keyword = $("#searchFieldInput").val();
-        $("#searchForm").attr("action", "/map/search/" + Map.getColor() + "/" + keyword);
-        $("#searchForm").submit();
+        // calculate position off searchFieldWrapper and translate it to array-index
+        var index = ($("#searchFieldWrapper").offset().top - 40) / 60 % 6;
+        var keyword = $("#searchFieldInput").val();
+
+        // colors[index] via post-call
+        $.post("/getmapcolors", function(colors) {
+            $("#searchForm").attr("action", "/map/search/" + colors[index] + "/" + keyword);
+            $("#searchForm").submit();
+        });
 	}
 };
 $('#page').live('pagecreate',function(event){
