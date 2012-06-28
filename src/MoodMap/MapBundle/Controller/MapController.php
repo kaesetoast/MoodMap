@@ -17,12 +17,14 @@ class MapController extends Controller
 
     public function searchAction($color, $keyword)
     {
+        $testString = "Mit regulären Ausdrücken werden explizite Eingaben von Benutzern in Formularen auf ihre Korrektheit überprüft. Damit wird überprüft, ob die eingegebene Zeichenkette dem definierten Muster entspricht. Es wird nun ersichtlich, dass einzugebenden Felder innerhalb eines Formulares mit diesen Mustern versehen werden können. Somit wird nicht nur gewährleistet, dass die gewollten Informationen erhalten werden, es entspricht auch dem Sicherheitsaspekt, sich vor diversen Attacken zu schützen.";
         $emotigrammService = $this->get("emotigramm_service");
+        $emotigrammColor = $emotigrammService->createEmotigramm($testString);
 
         return $this->render('MoodMapMapBundle:Map:searchResultList.html.twig', array(
             'color' => $color,
             'keyword' => $keyword,
-            'emotigramm' => $emotigrammService->createEmotigramm()
+            'emotigramm_color' => $emotigrammColor
         ));
     }
 

@@ -10,12 +10,10 @@
 namespace MoodMap\MapBundle\Services;
 
 class EmotigrammService {
-    public function createEmotigramm() {
+    public function createEmotigramm($text) {
         $emotigramm = array();
 
-        $testString = "Mit regulären Ausdrücken werden explizite Eingaben von Benutzern in Formularen auf ihre Korrektheit überprüft. Damit wird überprüft, ob die eingegebene Zeichenkette dem definierten Muster entspricht. Es wird nun ersichtlich, dass einzugebenden Felder innerhalb eines Formulares mit diesen Mustern versehen werden können. Somit wird nicht nur gewährleistet, dass die gewollten Informationen erhalten werden, es entspricht auch dem Sicherheitsaspekt, sich vor diversen Attacken zu schützen.";
-
-        $sentences = preg_split("/\./", $testString);
+        $sentences = preg_split("/\./", $text);
         foreach($sentences as $sentence) {
 
             $words = preg_split("/\s/", $sentence);
@@ -25,6 +23,6 @@ class EmotigrammService {
             }
         }
 
-        return "EmotigrammService";
+        return "red";
     }
 }
