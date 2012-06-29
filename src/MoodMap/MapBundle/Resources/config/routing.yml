@@ -12,6 +12,10 @@ show_item:
     pattern:  /map/show
     defaults: { _controller: MoodMapMapBundle:Map:showItem }
 
+createemotigramm:
+    pattern:  /map/createemotigramm/
+    defaults: { _controller: MoodMapMapBundle:Map:createEmotigramm }
+
 #moodword
 
 admin_moodword:

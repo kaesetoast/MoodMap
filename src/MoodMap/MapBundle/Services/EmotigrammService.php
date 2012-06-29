@@ -10,8 +10,9 @@
 namespace MoodMap\MapBundle\Services;
 
 class EmotigrammService {
-    public function createEmotigramm($text) {
+    public function createEmotigramm() {
         $emotigramm = array();
+        $text = "Hallo Niels. Wie Gehts?";
 
         $sentences = preg_split("/\./", $text);
         foreach($sentences as $sentence) {
@@ -23,6 +24,6 @@ class EmotigrammService {
             }
         }
 
-        return "red";
+        return true;
     }
 }
