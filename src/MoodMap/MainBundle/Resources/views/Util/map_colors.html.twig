@@ -1,36 +1,37 @@
-<div id="map-colors">
-    <ul class="selectable">
-        <li>
-            <div id="preview0"></div>
-        </li>
-        <li>
-            <div id="preview1"></div>
-        </li>
-        <li>
-            <div id="preview2"></div>
-        </li>
-        <li>
-            <div id="preview3"></div>
-        </li>
-        <li>
-            <div id="preview4"></div>
-        </li>
-        <li>
-            <div id="preview5"></div>
-        </li>
-    </ul>
-
-
-    <div data-role="fieldcontain">
-        <input id="red" type="range" min="0" max="255" value="127" data-highlight="true"/>
+<div class="ui-grid-a">
+    <div class="ui-block-a" id="map-colors">
+        <ul class="selectable">
+            <li>
+                <div id="preview0"></div>
+            </li>
+            <li>
+                <div id="preview1"></div>
+            </li>
+            <li>
+                <div id="preview2"></div>
+            </li>
+            <li>
+                <div id="preview3"></div>
+            </li>
+            <li>
+                <div id="preview4"></div>
+            </li>
+            <li>
+                <div id="preview5"></div>
+            </li>
+        </ul>
     </div>
-    <div data-role="fieldcontain">
-        <input id="green" type="range" min="0" max="255" value="127" data-highlight="true"/>
+    <div class="ui-block-b">
+        <div data-role="fieldcontain">
+            <input id="red" type="range" min="0" max="255" value="127" data-highlight="true"/>
+        </div>
+        <div data-role="fieldcontain">
+            <input id="green" type="range" min="0" max="255" value="127" data-highlight="true"/>
+        </div>
+        <div data-role="fieldcontain">
+            <input id="blue" type="range" min="0" max="255" value="127" data-highlight="true"/>
+        </div>
     </div>
-    <div data-role="fieldcontain">
-        <input id="blue" type="range" min="0" max="255" value="127" data-highlight="true"/>
-    </div>
-
-</div>
+</div><!-- /grid-a -->
 
 <a href="javascript:Profile.setMapColors()" data-role="button" data-theme="b">Save</a>
