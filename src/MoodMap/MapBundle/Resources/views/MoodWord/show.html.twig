@@ -1,37 +1,46 @@
+{% extends "MoodMapMapBundle:MoodWord:backend_base.html.twig" %}
+{% block body %}
+
 <h1>MoodWord</h1>
 
-<table class="record_properties">
+<table class="table table-condensed">
     <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Word</th>
-            <td>{{ entity.word }}</td>
-        </tr>
-        <tr>
-            <th>Colors</th>
-            <td>{{ entity.colors }}</td>
-        </tr>
+    <tr>
+        <th>Id</th>
+        <td>{{ entity.id }}</td>
+    </tr>
+    <tr>
+        <th>Word</th>
+        <td>{{ entity.word }}</td>
+    </tr>
+    <tr>
+        <th>Colors</th>
+        <td>
+            {% for color in entity.colors %}
+            {{ color }}
+            {% endfor %}
+        </td>
+    </tr>
     </tbody>
 </table>
 
-<ul class="record_actions">
+<ul class="unstyled buttonlist">
     <li>
-        <a href="{{ path('admin_moodword') }}">
+        <a class="btn" href="{{ path('admin_moodword') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('admin_moodword_edit', { 'id': entity.id }) }}">
+        <a class="btn btn-primary" href="{{ path('admin_moodword_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
     <li>
         <form action="{{ path('admin_moodword_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button class="btn" type="submit">Delete</button>
         </form>
     </li>
 </ul>
+
+{% endblock %}

@@ -1,39 +1,48 @@
+{% extends "MoodMapMapBundle:MoodWord:backend_base.html.twig" %}
+{% block body %}
+
 <h1>MoodWord list</h1>
 
-<table class="records_list">
+<table class="table table-condensed">
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Word</th>
-            <th>Colors</th>
-            <th>Actions</th>
-        </tr>
+    <tr>
+        <th>Id</th>
+        <th>Word</th>
+        <th>Colors</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('admin_moodword_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.word }}</td>
-            <td>{{ entity.colors }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_moodword_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_moodword_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
+    <tr>
+        <td>{{ entity.id }}</a></td>
+        <td>{{ entity.word }}</td>
+        <td>
+            {% for color in entity.colors %}
+            {{ color }}
+            {% endfor %}
+        </td>
+        <td>
+            <ul class="unstyled buttonlist">
+                <li>
+                    <a class="btn btn-primary" href="{{ path('admin_moodword_show', { 'id': entity.id }) }}">show</a>
+                </li>
+                <li>
+                    <a class="btn" href="{{ path('admin_moodword_edit', { 'id': entity.id }) }}">edit</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
     {% endfor %}
     </tbody>
 </table>
 
-<ul>
+<ul class="unstyled">
     <li>
-        <a href="{{ path('admin_moodword_new') }}">
+        <a class="btn" href="{{ path('admin_moodword_new') }}">
             Create a new entry
         </a>
     </li>
 </ul>
+
+{% endblock %}

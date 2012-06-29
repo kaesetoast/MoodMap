@@ -1,22 +1,25 @@
+{% extends "MoodMapMapBundle:MoodWord:backend_base.html.twig" %}
+{% block body %}
+
 <h1>MoodWord edit</h1>
 
-<form action="{{ path('admin_moodword_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit">Edit</button>
-    </p>
-</form>
+{% include "MoodMapMapBundle:MoodWord:form.html.twig" %}
 
-<ul class="record_actions">
+<ul class="unstyled buttonlist">
     <li>
-        <a href="{{ path('admin_moodword') }}">
+        <a class="btn" href="{{ path('admin_moodword') }}">
             Back to the list
         </a>
     </li>
     <li>
+        <button class="btn btn-primary" id="edit">Edit</button>
+    </li>
+    <li>
         <form action="{{ path('admin_moodword_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button class="btn" type="submit">Delete</button>
         </form>
     </li>
 </ul>
+
+{% endblock %}

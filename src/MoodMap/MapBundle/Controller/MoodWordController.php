@@ -45,7 +45,7 @@ class MoodWordController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('MoodMapMapBundle:MoodWord:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
 
         ));
@@ -57,12 +57,8 @@ class MoodWordController extends Controller
      */
     public function newAction()
     {
-        $entity = new MoodWord();
-        $form   = $this->createForm(new MoodWordType(), $entity);
-
         return $this->render('MoodMapMapBundle:MoodWord:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'entity' => null,
         ));
     }
 
@@ -72,24 +68,18 @@ class MoodWordController extends Controller
      */
     public function createAction()
     {
-        $entity  = new MoodWord();
+        $entity = new MoodWord();
         $request = $this->getRequest();
-        $form    = $this->createForm(new MoodWordType(), $entity);
-        $form->bindRequest($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($entity);
-            $em->flush();
+        $entity->setWord($request->get("word"));
+        $entity->setColors(json_decode($request->get("colors")));
 
-            return $this->redirect($this->generateUrl('admin_moodword_show', array('id' => $entity->getId())));
-            
-        }
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($entity);
+        $em->flush();
 
-        return $this->render('MoodMapMapBundle:MoodWord:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
-        ));
+        // return $this->redirect($this->generateUrl('admin_moodword_show', array('id' => $entity->getId())));
+        return $this->redirect($this->generateUrl('admin_moodword'));
     }
 
     /**
@@ -106,12 +96,10 @@ class MoodWordController extends Controller
             throw $this->createNotFoundException('Unable to find MoodWord entity.');
         }
 
-        $editForm = $this->createForm(new MoodWordType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('MoodMapMapBundle:MoodWord:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -130,7 +118,7 @@ class MoodWordController extends Controller
             throw $this->createNotFoundException('Unable to find MoodWord entity.');
         }
 
-        $editForm   = $this->createForm(new MoodWordType(), $entity);
+        $editForm = $this->createForm(new MoodWordType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();
@@ -145,8 +133,8 @@ class MoodWordController extends Controller
         }
 
         return $this->render('MoodMapMapBundle:MoodWord:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -181,7 +169,6 @@ class MoodWordController extends Controller
     {
         return $this->createFormBuilder(array('id' => $id))
             ->add('id', 'hidden')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

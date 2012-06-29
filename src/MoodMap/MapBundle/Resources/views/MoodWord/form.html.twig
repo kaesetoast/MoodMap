@@ -1,0 +1,43 @@
+<form id="form" class="form-horizontal" method="POST">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="word">Word</label>
+
+            <div class="controls">
+                {% if entity %}
+                <input type="text" class="input-xlarge" id="word" value="{{entity.getWord()}}">
+                {% else %}
+                <input type="text" class="input-xlarge" id="word">
+                {% endif %}
+            </div>
+        </div>
+
+        {% if entity %}
+        {% for color in entity.getColors() %}
+        <div class="control-group">
+            <label class="control-label">Color</label>
+
+            <div class="controls">
+                <input type="text" class="color input-xlarge" value="{{ color }}">
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="control-group">
+            <label class="control-label">Color 1</label>
+
+            <div class="controls">
+                <input type="text" class="color" maxlength="6">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Color 2</label>
+
+            <div class="controls">
+                <input type="text" class="color" maxlength="6">
+            </div>
+        </div>
+        {% endif %}
+
+    </fieldset>
+</form>

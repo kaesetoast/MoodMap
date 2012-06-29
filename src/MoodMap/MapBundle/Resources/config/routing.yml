@@ -31,7 +31,7 @@ admin_moodword_new:
     defaults: { _controller: "MoodMapMapBundle:MoodWord:new" }
 
 admin_moodword_create:
-    pattern:  /admin/moodword/create
+    pattern:  /admin/moodword/create/{word}/{colors}
     defaults: { _controller: "MoodMapMapBundle:MoodWord:create" }
     requirements: { _method: post }
 

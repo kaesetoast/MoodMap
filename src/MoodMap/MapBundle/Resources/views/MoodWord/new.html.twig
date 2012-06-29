@@ -1,16 +1,19 @@
+{% extends "MoodMapMapBundle:MoodWord:backend_base.html.twig" %}
+{% block body %}
+
 <h1>MoodWord creation</h1>
 
-<form action="{{ path('admin_moodword_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
+{% include "MoodMapMapBundle:MoodWord:form.html.twig" %}
 
-<ul class="record_actions">
+<ul class="unstyled buttonlist">
     <li>
-        <a href="{{ path('admin_moodword') }}">
+        <a class="btn" href="{{ path('admin_moodword') }}">
             Back to the list
         </a>
     </li>
+    <li>
+        <button class="btn btn-primary" id="create">Create</button>
+    </li>
 </ul>
+
+{% endblock %}
