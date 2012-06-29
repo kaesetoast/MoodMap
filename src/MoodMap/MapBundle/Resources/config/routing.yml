@@ -1,13 +1,46 @@
 search:
-    pattern:  /search/{color}/{keyword}
+    pattern:  /map/search/{color}/{keyword}
     defaults: { _controller: MoodMapMapBundle:Map:search }
     requirements:
         _method: POST
 
 createmap:
-    pattern: /createmap/
+    pattern: /map/createmap/
     defaults: { _controller: MoodMapMapBundle:Map:createMap }
 
 show_item:
-    pattern:  /show
+    pattern:  /map/show
     defaults: { _controller: MoodMapMapBundle:Map:showItem }
+
+#moodword
+
+admin_moodword:
+    pattern:  /admin/moodword/
+    defaults: { _controller: "MoodMapMapBundle:MoodWord:index" }
+
+admin_moodword_show:
+    pattern:  /admin/moodword/{id}/show
+    defaults: { _controller: "MoodMapMapBundle:MoodWord:show" }
+
+admin_moodword_new:
+    pattern:  /admin/moodword/new
+    defaults: { _controller: "MoodMapMapBundle:MoodWord:new" }
+
+admin_moodword_create:
+    pattern:  /admin/moodword/create
+    defaults: { _controller: "MoodMapMapBundle:MoodWord:create" }
+    requirements: { _method: post }
+
+admin_moodword_edit:
+    pattern:  /admin/moodword/{id}/edit
+    defaults: { _controller: "MoodMapMapBundle:MoodWord:edit" }
+
+admin_moodword_update:
+    pattern:  /admin/moodword/{id}/update
+    defaults: { _controller: "MoodMapMapBundle:MoodWord:update" }
+    requirements: { _method: post }
+
+admin_moodword_delete:
+    pattern:  /admin/moodword/{id}/delete
+    defaults: { _controller: "MoodMapMapBundle:MoodWord:delete" }
+    requirements: { _method: post }
