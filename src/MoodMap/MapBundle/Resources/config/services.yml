@@ -8,6 +8,7 @@ services:
 
     emotigramm_service:
         class: MoodMap\MapBundle\Services\EmotigrammService
+        arguments: [ @doctrine.orm.entity_manager ]
 
 #    mood_map_map.example:
 #        class: %mood_map_map.example.class%

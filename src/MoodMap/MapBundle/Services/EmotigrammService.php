@@ -9,12 +9,23 @@
 
 namespace MoodMap\MapBundle\Services;
 
-class EmotigrammService {
-    public function createEmotigramm() {
-        $emotigramm = array();
-        $text = "Hallo Niels. Wie Gehts?";
+use Doctrine\ORM\EntityManager;
 
-        $sentences = preg_split("/\./", $text);
+class EmotigrammService {
+
+    private $em;
+    private $entities;
+
+    public function __construct(EntityManager $em) {
+        $this->em = $em;
+    }
+
+    public function createEmotigramm() {
+        $this->entities = $this->em->getRepository('MoodMapMapBundle:MoodWord')->findAll();
+
+        $text = "Hallo Niels. Wie Gehts? Muh";
+
+        $sentences = preg_split("/\.|\?|\!|;/", $text);
         foreach($sentences as $sentence) {
 
             $words = preg_split("/\s/", $sentence);
@@ -25,5 +36,13 @@ class EmotigrammService {
         }
 
         return true;
+    }
+
+    private function getColors($word) {
+        foreach($this->entities as $entity) {
+            if($entity->getWord() == $word) {
+                return $entity->getColors();
+            }
+        }
     }
 }
