@@ -23,7 +23,8 @@ class MapController extends Controller
         ));
     }
 
-    public function showItemAction() {
+    public function showItemAction()
+    {
         return $this->render('MoodMapMapBundle:Map:showItem.html.twig');
     }
 
@@ -37,10 +38,14 @@ class MapController extends Controller
         return $response;
     }
 
-    public function createEmotigrammAction() {
+    public function createEmotigrammAction()
+    {
+        // TODO: Debug
+        $text = "Der Frühling ist Liebe. Das ist toll.";
+
         $emotigrammService = $this->get("emotigramm_service");
 
-        $response = new Response(json_encode(array('success' => $emotigrammService->createEmotigramm())));
+        $response = new Response(json_encode(array('color' => $emotigrammService->createEmotigramm($text))));
         $response->headers
             ->set("Content-Type", "application/json", "charset=utf-8");
         return $response;
