@@ -3,28 +3,20 @@ Moodword = {
         $("#create").bind("click", function () {
             Moodword.save();
         });
-        $(".controls > .color").ColorPicker({
-            onSubmit:function (hsb, hex, rgb, element) {
-                $(element).val(hex);
-                $(element).ColorPickerHide();
-            },
-            onBeforeShow:function () {
-                $(this).ColorPickerSetColor(this.value);
-            }
-        })
+        $("#moodwordform > fieldset > .control-group > .controls > .color").colorpicker();
     },
 
     save:function () {
         var word = $("#word").val();
 
         var colors = Array();
-        $(".controls > .color").each(function () {
+        $(".color > input").each(function () {
             var color = $(this).val();
-            colors.push(color);
+            colors.push(color.substring(1, 7));
         });
 
-        $("#form").attr("action", "/admin/moodword/create/" + word + "/" + JSON.stringify(colors));
-        $("#form").submit();
+        $("#moodwordform").attr("action", "/admin/moodword/create/" + word + "/" + JSON.stringify(colors));
+        $("#moodwordform").submit();
     }
 };
 $(document).ready(function (event) {

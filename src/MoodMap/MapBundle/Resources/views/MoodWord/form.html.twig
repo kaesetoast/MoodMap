@@ -1,4 +1,4 @@
-<form id="form" class="form-horizontal" method="POST">
+<form id="moodwordform" class="form-horizontal" method="POST">
     <fieldset>
         <div class="control-group">
             <label class="control-label" for="word">Word</label>
@@ -7,7 +7,7 @@
                 {% if entity %}
                 <input type="text" class="input-xlarge" id="word" value="{{entity.getWord()}}">
                 {% else %}
-                <input type="text" class="input-xlarge" id="word">
+                <input type="text" class="input-xlarge" id="word" placeholder="Moodword">
                 {% endif %}
             </div>
         </div>
@@ -18,7 +18,10 @@
             <label class="control-label">Color</label>
 
             <div class="controls">
-                <input type="text" class="color input-xlarge" value="{{ color }}">
+                <div class="input-append color" data-color="#{{ color }}" data-color-format="hex">
+                    <input type="text" class="span2" value="#{{ color }}" maxlength="7">
+                    <span class="add-on"><i style="background-color: #{{ color }}}"></i></span>
+                </div>
             </div>
         </div>
         {% endfor %}
@@ -27,14 +30,20 @@
             <label class="control-label">Color 1</label>
 
             <div class="controls">
-                <input type="text" class="color" maxlength="6">
+                <div class="input-append color" data-color="#ff92b4" data-color-format="hex">
+                    <input type="text" class="span2" value="#ff92b4" maxlength="7">
+                    <span class="add-on"><i style="background-color: #ff92b4"></i></span>
+                </div>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Color 2</label>
 
             <div class="controls">
-                <input type="text" class="color" maxlength="6">
+                <div class="input-append color" data-color="#ff92b4" data-color-format="hex">
+                    <input type="text" class="span2" value="#ff92b4" maxlength="7">
+                    <span class="add-on"><i style="background-color: #ff92b4"></i></span>
+                </div>
             </div>
         </div>
         {% endif %}
