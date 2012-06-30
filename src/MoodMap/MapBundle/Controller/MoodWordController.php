@@ -108,35 +108,24 @@ class MoodWordController extends Controller
      * Edits an existing MoodWord entity.
      *
      */
-    public function updateAction($id)
+    public function updateAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $request = $this->getRequest();
 
-        $entity = $em->getRepository('MoodMapMapBundle:MoodWord')->find($id);
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('MoodMapMapBundle:MoodWord')->find($request->get("id"));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find MoodWord entity.');
         }
 
-        $editForm = $this->createForm(new MoodWordType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $entity->setWord($request->get("word"));
+        $entity->setColors(json_decode($request->get("colors")));
 
-        $request = $this->getRequest();
+        $em->persist($entity);
+        $em->flush();
 
-        $editForm->bindRequest($request);
-
-        if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('admin_moodword_edit', array('id' => $id)));
-        }
-
-        return $this->render('MoodMapMapBundle:MoodWord:edit.html.twig', array(
-            'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+        return $this->redirect($this->generateUrl('admin_moodword_edit', array('id' => $entity->getID())));
     }
 
     /**

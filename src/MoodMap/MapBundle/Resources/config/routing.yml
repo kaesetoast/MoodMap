@@ -40,7 +40,7 @@ admin_moodword_edit:
     defaults: { _controller: "MoodMapMapBundle:MoodWord:edit" }
 
 admin_moodword_update:
-    pattern:  /admin/moodword/{id}/update
+    pattern:  /admin/moodword/{id}/update/{word}/{colors}
     defaults: { _controller: "MoodMapMapBundle:MoodWord:update" }
     requirements: { _method: post }
 
