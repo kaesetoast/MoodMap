@@ -1,11 +1,13 @@
 {% extends "MoodMapMapBundle:MoodWord:backend_base.html.twig" %}
 {% block body %}
 
-<h1>MoodWord creation</h1>
+<div class="page-header">
+    <h1>MoodWord creation</h1>
+</div>
 
 {% include "MoodMapMapBundle:MoodWord:form.html.twig" %}
 
-<ul class="unstyled buttonlist">
+<ul class="well unstyled buttonlist">
     <li>
         <a class="btn" href="{{ path('admin_moodword') }}">
             Back to the list
