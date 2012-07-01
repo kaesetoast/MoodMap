@@ -5,10 +5,18 @@
     <h1>MoodWord list</h1>
 </div>
 
+<ul class="well unstyled buttonlist">
+    <li>
+        <a class="btn" href="{{ path('admin_moodword_new') }}">
+            Create a new entry
+        </a>
+    </li>
+    <div></div>
+</ul>
+
 <table class="table table-condensed">
     <thead>
     <tr>
-        <th>Id</th>
         <th>Word</th>
         <th>Colors</th>
         <th>Actions</th>
@@ -17,12 +25,16 @@
     <tbody>
     {% for entity in entities %}
     <tr>
-        <td>{{ entity.id }}</a></td>
         <td>{{ entity.word }}</td>
         <td>
-            {% for color in entity.colors %}
-            {{ color }}
-            {% endfor %}
+            <form class="form-inline">
+                {% for color in entity.colors %}
+                <div class="input-append">
+                    <input type="text" class="input-mini disabled" value="#{{ color }}" disabled="">
+                    <span class="add-on" style="background-color: #{{ color }}"></span>
+                </div>
+                {% endfor %}
+            </form>
         </td>
         <td>
             <ul class="unstyled buttonlist">
@@ -39,12 +51,13 @@
     </tbody>
 </table>
 
-<ul class="well unstyled">
+<ul class="well unstyled buttonlist">
     <li>
         <a class="btn" href="{{ path('admin_moodword_new') }}">
             Create a new entry
         </a>
     </li>
+    <div></div>
 </ul>
 
 {% endblock %}

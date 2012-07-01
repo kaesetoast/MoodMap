@@ -1,4 +1,13 @@
 .buttonlist li {
+    display: inline;
     float: left;
     margin-right: 10px;
+}
+
+.buttonlist div {
+    clear: left;
+}
+
+.buttonlist li form {
+    margin: 0px;
 }

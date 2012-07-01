@@ -21,7 +21,9 @@ class MoodWordController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('MoodMapMapBundle:MoodWord')->findAll();
+        // lexicographical ordered list
+        // $entities = $em->getRepository('MoodMapMapBundle:MoodWord')->findBy(array(), array("word" => "asc"));
+        $entities = $em->createQuery("SELECT mw FROM MoodMapMapBundle:MoodWord mw ORDER BY mw.word ASC")->getResult();
 
         return $this->render('MoodMapMapBundle:MoodWord:index.html.twig', array(
             'entities' => $entities

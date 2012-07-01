@@ -1,7 +1,12 @@
 {% extends "MoodMapMapBundle:MoodWord:backend_base.html.twig" %}
 {% block body %}
 <div class="page-header">
-    <h1>MoodWord edit</h1>
+    <h1>
+        {{ entity.word }}
+        <small>
+            id = {{ entity.id }}
+        </small>
+    </h1>
 </div>
 
 {% include "MoodMapMapBundle:MoodWord:form.html.twig" %}
@@ -21,6 +26,8 @@
             <button class="btn" type="submit">Delete</button>
         </form>
     </li>
+    <div></div>
 </ul>
+
 <div id="entitydata" data-entityid="{{ entity.id }}" style="display: none"></div>
 {% endblock %}

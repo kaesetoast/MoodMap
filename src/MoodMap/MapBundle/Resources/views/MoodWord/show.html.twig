@@ -2,29 +2,38 @@
 {% block body %}
 
 <div class="page-header">
-    <h1>MoodWord</h1>
+    <h1>
+        {{ entity.word }}
+        <small>
+            id = {{ entity.id }}
+        </small>
+    </h1>
 </div>
 
-<table class="table table-condensed">
-    <tbody>
-    <tr>
-        <th>Id</th>
-        <td>{{ entity.id }}</td>
-    </tr>
-    <tr>
-        <th>Word</th>
-        <td>{{ entity.word }}</td>
-    </tr>
-    <tr>
-        <th>Colors</th>
-        <td>
-            {% for color in entity.colors %}
-            {{ color }}
-            {% endfor %}
-        </td>
-    </tr>
-    </tbody>
-</table>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="word">Word</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge disabled" id="word" value="{{entity.getWord()}}" disabled="">
+            </div>
+        </div>
+
+        {% for color in entity.colors %}
+        <div class="control-group">
+            <label class="control-label">Color</label>
+
+            <div class="controls">
+                <div class="input-append">
+                    <input type="text" class="input-mini disabled" value="#{{ color }}" disabled="">
+                    <span class="add-on" style="background-color: #{{ color }}"></span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </fieldset>
+</form>
 
 <ul class="well unstyled buttonlist">
     <li>
@@ -43,6 +52,7 @@
             <button class="btn" type="submit">Delete</button>
         </form>
     </li>
+    <div></div>
 </ul>
 
 {% endblock %}
