@@ -63,7 +63,7 @@ class EmotigrammService
         $words = preg_split("/\s/", $sentence);
         $wordCount = 0;
         foreach ($words as $word) {
-            $color = $this->getWordColor($word);
+            $color = $this->getWordColor(trim($word));
 
             if ($color != null) {
                 // colors are 24-bit numbers, so check for overflow
@@ -91,7 +91,7 @@ class EmotigrammService
         $resColor = 0;
 
         foreach ($this->entities as $entity) {
-            if ($entity->getWord() == $word) {
+            if (preg_match("/(\w*" . $entity->getWord() . "\w*)/", $word)) {
 
                 // TODO: Does an entity have colors when there is a word? yes?
                 $colors = $entity->getColors();
