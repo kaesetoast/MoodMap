@@ -50,7 +50,11 @@ class EmotigrammService
         if ($sentenceCount == 0)
             return null;
 
-        return dechex($resColor / $sentenceCount);
+        $resColor /= $sentenceCount;
+        // convert to hex, and left fill in "0"
+        $hexValue = str_pad(dechex($resColor), 6, "0", STR_PAD_LEFT);
+
+        return $hexValue;
 
     }
 
