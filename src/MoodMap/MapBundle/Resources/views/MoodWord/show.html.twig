@@ -37,11 +37,6 @@
 
 <ul class="well unstyled buttonlist">
     <li>
-        <a class="btn" href="{{ path('admin_moodword') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
         <a class="btn btn-primary" href="{{ path('admin_moodword_edit', { 'id': entity.id }) }}">
             Edit
         </a>
@@ -49,10 +44,23 @@
     <li>
         <form action="{{ path('admin_moodword_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button class="btn" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit">Delete</button>
         </form>
     </li>
     <div></div>
 </ul>
 
+{% endblock %}
+
+{% block subnavi %}
+<li>
+    <a href="{{ path('admin_moodword') }}">
+        <i class="icon-th-list"></i> List MoodWords
+    </a>
+</li>
+<li>
+    <a href="{{ path('admin_moodword_new') }}">
+        <i class="icon-pencil"></i> Create a new MoodWord
+    </a>
+</li>
 {% endblock %}

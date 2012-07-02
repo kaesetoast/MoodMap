@@ -9,14 +9,22 @@
 
 <ul class="well unstyled buttonlist">
     <li>
-        <a class="btn" href="{{ path('admin_moodword') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
         <button class="btn btn-primary" id="create">Create</button>
     </li>
     <div></div>
 </ul>
 
+{% endblock %}
+
+{% block subnavi %}
+<li>
+    <a href="{{ path('admin_moodword') }}">
+        <i class="icon-th-list"></i> List MoodWords
+    </a>
+</li>
+<li class="active">
+    <a href="{{ path('admin_moodword_new') }}">
+        <i class="icon-white icon-pencil"></i> Create a new MoodWord
+    </a>
+</li>
 {% endblock %}
