@@ -13,13 +13,39 @@ use Doctrine\ORM\EntityManager;
 
 class EmotigrammService
 {
-
     private $em;
     private $entities;
 
     public function __construct(EntityManager $em)
     {
         $this->em = $em;
+    }
+
+    /*
+     * returns if $c1 and $c2 matches or not.
+     */
+    public function colorMatch($c1, $c2)
+    {
+        // << and >> cast their operands to integer (when possible) before shifting and will always return an integer result.
+        $c1dec = hexdec($c1);
+        $c2dec = hexdec($c2);
+        $bitMask = hexdec("0000FF");
+
+        $b1 = $c1dec & $bitMask;
+        $b2 = $c2dec & $bitMask;
+
+        $g1 = ($c1dec >> 8) & $bitMask;
+        $g2 = ($c2dec >> 8) & $bitMask;
+
+        $r1 = ($c1dec >> 16) & $bitMask;
+        $r2 = ($c2dec >> 16) & $bitMask;
+
+        $varianceR = abs($r1 - $r2) / 255;
+        $varianceG = abs($g1 - $g2) / 255;
+        $varianceB = abs($b1 - $b2) / 255;
+
+        // variance must be smaller than 20%
+        return $varianceR < 0.2 && $varianceG < 0.2 && $varianceB < 0.2;
     }
 
     /*
