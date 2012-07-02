@@ -1,41 +1,47 @@
-<h1>Recommendation list</h1>
+{% extends 'MoodMapMapBundle:Recommendation:base.html.twig' %}
+{% block body %}
+<div class="page-header">
+    <h1>Recommendation list</h1>
+</div>
 
-<table class="records_list">
+<table class="table table-condensed">
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Actions</th>
-        </tr>
+    <tr>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('admin_recommendation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.title }}</td>
-            <td>{{ entity.description }}</td>
-            <td>{{ entity.image }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_recommendation_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_recommendation_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
+    <tr>
+        <td>{{ entity.title }}</td>
+        <td>{{ entity.image }}</td>
+        <td>
+            <ul class="unstyled buttonlist">
+                <li>
+                    <a class="btn btn-primary" href="{{ path('admin_recommendation_show', { 'id': entity.id }) }}">show</a>
+                </li>
+                <li>
+                    <a class="btn" href="{{ path('admin_recommendation_edit', { 'id': entity.id }) }}">edit</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}
 
-<ul>
-    <li>
-        <a href="{{ path('admin_recommendation_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+{% block subnavi %}
+<li class="active">
+    <a href="{{ path('admin_recommendation') }}">
+        <i class="icon-white icon-th-list"></i> List Recommendations
+    </a>
+</li>
+<li>
+    <a href="{{ path('admin_recommendation_new') }}">
+        <i class="icon-pencil"></i> Create a new Recommendation
+    </a>
+</li>
+{% endblock %}

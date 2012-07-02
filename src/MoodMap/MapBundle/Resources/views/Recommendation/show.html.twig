@@ -1,6 +1,11 @@
-<h1>Recommendation</h1>
+{% extends "MoodMapMapBundle:Recommendation:base.html.twig" %}
+{% block body %}
 
-<table class="record_properties">
+<div class="page-header">
+    <h1>Recommendation</h1>
+</div>
+
+<table class="table table-striped">
     <tbody>
         <tr>
             <th>Id</th>
@@ -12,30 +17,41 @@
         </tr>
         <tr>
             <th>Description</th>
-            <td>{{ entity.description }}</td>
+            <td>{{ entity.description|raw }}</td>
         </tr>
         <tr>
             <th>Image</th>
-            <td>{{ entity.image }}</td>
+            <td><img src="{{ entity.image }}" alt="{{ entity.title }}"></td>
         </tr>
     </tbody>
 </table>
 
-<ul class="record_actions">
+<ul class="well unstyled buttonlist">
     <li>
-        <a href="{{ path('admin_recommendation') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_recommendation_edit', { 'id': entity.id }) }}">
+        <a class="btn btn-primary" href="{{ path('admin_recommendation_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
     <li>
         <form action="{{ path('admin_recommendation_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit">Delete</button>
         </form>
     </li>
+    <div></div>
 </ul>
+
+{% endblock %}
+
+{% block subnavi %}
+<li>
+    <a href="{{ path('admin_recommendation') }}">
+        <i class="icon-th-list"></i> List Recommendations
+    </a>
+</li>
+<li>
+    <a href="{{ path('admin_recommendation_new') }}">
+        <i class="icon-pencil"></i> Create a new Recommendation
+    </a>
+</li>
+{% endblock %}
