@@ -37,7 +37,7 @@
           </div>
           <div class="nav-collapse">
             <ul class="nav">
-              <li{% if current == "dashboard" %} class="active"{% endif %}><a href="#">Dashboard</a></li>
+              <li{% if current == "dashboard" %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}">Dashboard</a></li>
               <li{% if current == "recommendations" %} class="active"{% endif %}><a href="{{ path('admin_recommendation') }}">Recommendations</a></li>
               <li{% if current == "moodwords" %} class="active"{% endif %}><a href="{{ path('admin_moodword') }}">MoodWords</a></li>
             </ul>
