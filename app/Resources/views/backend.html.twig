@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<title>{% block title %}MoodMap Backend{% endblock %}</title>
     <link href="{{ asset('css/backend/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backend/bootstrap-responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backend/moodword.css') }}" rel="stylesheet">
@@ -10,6 +12,10 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
+
+      .sidebar-nav {
+			padding: 9px 0;
+	  }
     </style>
 </head>
 
@@ -47,9 +53,22 @@
     </div>
 
 <div class="container-fluid">
-{% block body %}
+	<div class="row-fluid">
+		<div class="span2">
+			<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li class="nav-header">Actions</li>
+					{% block subnavi %}
+					{% endblock %}
+				</ul>
+			</div>
+		</div>
+		<div class="span10">
+			{% block body %}
+			{% endblock %}
+		</div>
+	</div>
 
-{% endblock %}
 </div>
 
 <script src="{{ asset('/js/jquery.min.js') }}" type="text/javascript"></script>
