@@ -1,0 +1,30 @@
+admin_recommendation:
+    pattern:  /
+    defaults: { _controller: "MoodMapMapBundle:Recommendation:index" }
+
+admin_recommendation_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MoodMapMapBundle:Recommendation:show" }
+
+admin_recommendation_new:
+    pattern:  /new
+    defaults: { _controller: "MoodMapMapBundle:Recommendation:new" }
+
+admin_recommendation_create:
+    pattern:  /create
+    defaults: { _controller: "MoodMapMapBundle:Recommendation:create" }
+    requirements: { _method: post }
+
+admin_recommendation_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MoodMapMapBundle:Recommendation:edit" }
+
+admin_recommendation_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MoodMapMapBundle:Recommendation:update" }
+    requirements: { _method: post }
+
+admin_recommendation_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MoodMapMapBundle:Recommendation:delete" }
+    requirements: { _method: post }

@@ -1,3 +1,7 @@
+MoodMapMapBundle_admin_recommendation:
+    resource: "@MoodMapMapBundle/Resources/config/routing/recommendation.yml"
+    prefix:   /admin/recommendation
+
 search:
     pattern:  /map/search/{color}/{keyword}
     defaults: { _controller: MoodMapMapBundle:Map:search }
