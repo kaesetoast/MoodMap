@@ -93,12 +93,17 @@ var Profile = {
         }
 
         $.post("/updatemapcolors", {mapcolors:mapColors}, function (data) {
-            console.log(data);
+            if (data["success"]) {
+                alert("gespeichert.");
+                window.location.reload();
+            } else {
+                alert("Fehler beim Speichern.");
+            }
         });
     }
 }
 
-$('#page').live('pagecreate',function(event){
+$('#page').live('pagecreate', function (event) {
     Profile.MapColorSquares.init();
     Profile.MapColorPicker.init();
 });
