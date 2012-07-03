@@ -22,6 +22,21 @@ class MapController extends Controller
         $tag = $em->getRepository('MoodMapMapBundle:Tag')->findByName($keyword);
         $recommendations = $tag[0]->getRecommendations();
 
+        $colorMatchTrue = array();
+        $colorMatchFalse = array();
+
+        $emotigramm_service = $this->get('emotigramm_service');
+
+        foreach ($recommendations as $recommendation) {
+            if ($emotigramm_service->colorMatch($color, $recommendation->getColor())) {
+                $colorMatchTrue[] = $recommendation;
+            } else {
+                $colorMatchFalse[] = $recommendation;
+            }
+        }
+
+        $recommendations = array_merge($colorMatchTrue, $colorMatchFalse);
+
         return $this->render('MoodMapMapBundle:Map:searchResultList.html.twig', array(
             'color' => $color,
             'keyword' => $keyword,
