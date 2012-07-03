@@ -17,9 +17,15 @@ class MapController extends Controller
 
     public function searchAction($color, $keyword)
     {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $tag = $em->getRepository('MoodMapMapBundle:Tag')->findByName($keyword);
+        $recommendations = $tag[0]->getRecommendations();
+
         return $this->render('MoodMapMapBundle:Map:searchResultList.html.twig', array(
             'color' => $color,
-            'keyword' => $keyword
+            'keyword' => $keyword,
+            'recommendations' => $recommendations,
         ));
     }
 
