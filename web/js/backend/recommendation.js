@@ -12,7 +12,7 @@ var Recommendation = {
 			if (event.keyCode == 188) {
 				var tag = $(input).val();
 				tag = tag.substr(0, tag.length - 1)
-				$("#tag-list").append('<span class="tag-item">' + tag + '</span>');
+				$("#tag-list").append('<span style="margin-right: 3px" class="label label-info">' + tag + '</span>');
 				$(input).val("");
 				$.post("/admin/tagtoid/" + tag, function(data) {
 					if (data.isNew) {
