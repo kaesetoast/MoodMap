@@ -1,8 +1,20 @@
 {% form_theme form theme %}
 
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
-    </div>
-</form>
+<div data-role="collapsible" data-collapsed="true">
+    <h3>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}, {{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}</h3>
+
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST"
+          class="fos_user_profile_edit">
+        {{ form_widget(form) }}
+        <div>
+            <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}"/>
+        </div>
+    </form>
+
+</div>
+
+<div data-role="collapsible" data-collapsed="true">
+    <h3>Customize youe Map!</h3>
+
+    {% include 'MoodMapMainBundle:Util:map_colors.html.twig' %}
+</div>

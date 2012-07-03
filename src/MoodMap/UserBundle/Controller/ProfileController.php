@@ -70,11 +70,9 @@ class ProfileController extends BaseController
         $em->flush();
 
         $mapService = $this->container->get("map_service");
+        $mapService->createImage();
 
-        $response = new Response(json_encode(array('success' => $mapService->createImage())));
-        $response->headers
-            ->set("Content-Type", "application/json", "charset=utf-8");
-        return $response;
+        return new RedirectResponse($this->container->get('router')->generate('fos_user_profile_show'));
     }
 
     public function getMapColorsAction()
@@ -85,5 +83,4 @@ class ProfileController extends BaseController
             ->set("Content-Type", "application/json", "charset=utf-8");
         return $response;
     }
-
 }

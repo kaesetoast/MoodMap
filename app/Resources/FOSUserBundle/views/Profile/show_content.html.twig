@@ -1,7 +1,7 @@
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p>
+    <h1>Hello {{ user.username }}!</h1>
 
-    <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+    <p>Your {{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
 
-    {% include 'MoodMapMainBundle:Util:map_colors.html.twig' %}
+    <a href="{{ path('fos_user_profile_edit') }}" data-role="button">Edit</a>
 </div>
