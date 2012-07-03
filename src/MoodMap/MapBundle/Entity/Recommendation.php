@@ -43,6 +43,13 @@ class Recommendation
     private $image;
 
     /**
+     * @var string $color
+     *
+     * @ORM\Column(name="color", type="string", length=255)
+     */
+    private $color;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Tag")
      * @ORM\JoinTable(name="tag_to_recommendations",
      *      joinColumns={@ORM\JoinColumn(name="recommendation_id", referencedColumnName="id")},
@@ -143,5 +150,25 @@ class Recommendation
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string 
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 }

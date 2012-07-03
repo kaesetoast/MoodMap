@@ -83,6 +83,8 @@ class RecommendationController extends Controller
         $form->bindRequest($request);
 
         if ($form->isValid()) {
+            $color = $this->get('emotigramm_service')->createEmotigramm($entity->getDescription());
+            $entity->setColor($color);
             $em->persist($entity);
             $em->flush();
 
