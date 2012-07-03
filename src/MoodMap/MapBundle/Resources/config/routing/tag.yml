@@ -1,0 +1,30 @@
+admin_tag:
+    pattern:  /
+    defaults: { _controller: "MoodMapMapBundle:Tag:index" }
+
+admin_tag_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MoodMapMapBundle:Tag:show" }
+
+admin_tag_new:
+    pattern:  /new
+    defaults: { _controller: "MoodMapMapBundle:Tag:new" }
+
+admin_tag_create:
+    pattern:  /create
+    defaults: { _controller: "MoodMapMapBundle:Tag:create" }
+    requirements: { _method: post }
+
+admin_tag_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MoodMapMapBundle:Tag:edit" }
+
+admin_tag_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MoodMapMapBundle:Tag:update" }
+    requirements: { _method: post }
+
+admin_tag_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MoodMapMapBundle:Tag:delete" }
+    requirements: { _method: post }

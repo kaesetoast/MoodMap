@@ -1,4 +1,4 @@
-Moodword = {
+var Moodword = {
     init:function () {
         $("#create").bind("click", function () {
             Moodword.save();

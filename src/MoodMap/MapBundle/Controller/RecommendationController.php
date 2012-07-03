@@ -5,7 +5,9 @@ namespace MoodMap\MapBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use MoodMap\MapBundle\Entity\Recommendation;
+use MoodMap\MapBundle\Entity\Tag;
 use MoodMap\MapBundle\Form\RecommendationType;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Recommendation controller.
@@ -72,13 +74,15 @@ class RecommendationController extends Controller
      */
     public function createAction()
     {
+        $em = $this->getDoctrine()->getEntityManager();
+
         $entity  = new Recommendation();
         $request = $this->getRequest();
+
         $form    = $this->createForm(new RecommendationType(), $entity);
         $form->bindRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
             $em->persist($entity);
             $em->flush();
 
@@ -175,6 +179,25 @@ class RecommendationController extends Controller
         }
 
         return $this->redirect($this->generateUrl('admin_recommendation'));
+    }
+
+    public function tagToIdAction($tag) {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entities = $em->getRepository('MoodMapMapBundle:Tag')->findByName($tag);
+        if (count($entities) == 0) {
+            $entity = new Tag();
+            $entity->setName($tag);
+            $em->persist($entity);
+            $em->flush();
+            $newEntity = true;
+        } else {
+            $entity = $entities[0];
+            $newEntity = false;
+        }
+        $response = new Response(json_encode(array('id' => $entity->getId(), 'name' => $entity->getName(), 'isNew' => $newEntity)));
+        $response->headers
+            ->set("Content-Type", "application/json", "charset=utf-8");
+        return $response;
     }
 
     private function createDeleteForm($id)

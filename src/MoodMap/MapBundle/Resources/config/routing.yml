@@ -2,6 +2,10 @@ MoodMapMapBundle_admin_recommendation:
     resource: "@MoodMapMapBundle/Resources/config/routing/recommendation.yml"
     prefix:   /admin/recommendation
 
+MoodMapMapBundle_admin_tag:
+        resource: "@MoodMapMapBundle/Resources/config/routing/tag.yml"
+        prefix:   /admin/tag
+
 search:
     pattern:  /map/search/{color}/{keyword}
     defaults: { _controller: MoodMapMapBundle:Map:search }
@@ -19,6 +23,12 @@ show_item:
 createemotigramm:
     pattern:  /map/createemotigramm/
     defaults: { _controller: MoodMapMapBundle:Map:createEmotigramm }
+
+tagtoid:
+    pattern:  /admin/tagtoid/{tag}
+    defaults: { _controller: MoodMapMapBundle:Recommendation:tagToId }
+    requirements:
+        _method: POST
 
 #moodword
 

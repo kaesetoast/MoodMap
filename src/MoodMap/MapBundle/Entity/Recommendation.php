@@ -42,6 +42,14 @@ class Recommendation
      */
     private $image;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\JoinTable(name="tag_to_recommendations",
+     *      joinColumns={@ORM\JoinColumn(name="recommendation_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     * )
+     */
+    private $tags;
 
     /**
      * Get id
@@ -111,5 +119,29 @@ class Recommendation
     public function getImage()
     {
         return $this->image;
+    }
+    public function __construct()
+    {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add tags
+     *
+     * @param MoodMap\MapBundle\Entity\Tag $tags
+     */
+    public function addTag(\MoodMap\MapBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }
