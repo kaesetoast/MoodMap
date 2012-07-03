@@ -11,6 +11,8 @@ var Profile = {
             $.post("/getmapcolors", function (mapColors) {
                 $.each(mapColors, function (index, value) {
                     $("#preview" + index).css("background-color", "#" + value);
+                    // show
+                    $("#color" + index).css("background-color", "#" + value);
                 })
             });
 

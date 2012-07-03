@@ -21,3 +21,10 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(82, 168, 236, 0.6);
     outline: 0 none;
 }
+
+#color0, #color1, #color2, #color3, #color4, #color5 {
+    width: 7px;
+    height: 57px;
+    margin-bottom: 3px;
+    margin-right: 15px;
+}

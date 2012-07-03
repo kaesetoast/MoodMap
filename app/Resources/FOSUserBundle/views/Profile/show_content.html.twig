@@ -1,7 +1,23 @@
 <div class="fos_user_user_show">
-    <h1>Hello {{ user.username }}!</h1>
+    <div class="ui-block-a">
+        <div id="color0"></div>
+        <div id="color1"></div>
+        <div id="color2"></div>
+        <div id="color3"></div>
+        <div id="color4"></div>
+        <div id="color5"></div>
+    </div>
 
-    <p>Your {{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+    <div class="ui-block-b">
+        <h1>
+            Hello <br>
+            {{ user.username }}!
+        </h1>
 
-    <a href="{{ path('fos_user_profile_edit') }}" data-role="button">Edit</a>
+        <p><b>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}</b> {{ user.email }}</p>
+
+        <p>To change your Map and everything else click</p>
+
+        <a href="{{ path('fos_user_profile_edit') }}" data-role="button">Edit</a>
+    </div>
 </div>
