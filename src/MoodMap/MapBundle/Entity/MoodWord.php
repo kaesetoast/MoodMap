@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ *
+ * @author Philipp Nowinski <pn@mood-map.com>
  */
 class MoodWord
 {

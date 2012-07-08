@@ -7,6 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Map Controller
+ *
+ * This Controller is responsible for all actions which are related
+ * to the frontend map.
+ *
+ * @author Niels Garve <ng@mood-map.com>
+ */
 class MapController extends Controller
 {
 

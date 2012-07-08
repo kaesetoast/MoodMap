@@ -13,6 +13,7 @@ use FOS\UserBundle\Controller\ProfileController as BaseController;
 /**
  * Controller managing the user profile
  *
+ * @author Niels Garve <ng@mood-map.com>
  */
 class ProfileController extends BaseController
 {

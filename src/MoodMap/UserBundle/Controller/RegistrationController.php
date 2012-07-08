@@ -19,6 +19,11 @@ use FOS\UserBundle\Model\UserInterface;
 
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
+/**
+ * This Controller manages the regestration process
+ *
+ * @author Niels Garve <ng@mood-map.com>
+ */
 class RegistrationController extends BaseController
 {
     /*

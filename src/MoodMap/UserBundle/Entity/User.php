@@ -11,6 +11,12 @@ use FOS\UserBundle\Entity\User as FOSUser;
  * @ORM\Table()
  * @ORM\Entity
  */
+
+/**
+ * User entity
+ *
+ * @author Niels Garve <ng@mood-map.com>
+ */
 class User extends FOSUser
 {
     /**

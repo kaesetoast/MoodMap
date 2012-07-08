@@ -8,8 +8,9 @@ use MoodMap\MapBundle\Entity\Tag;
 use MoodMap\MapBundle\Form\TagType;
 
 /**
- * Tag controller.
+ * Tag Controller
  *
+ * @author Philipp Nowinski <pn@mood-map.com>
  */
 class TagController extends Controller
 {

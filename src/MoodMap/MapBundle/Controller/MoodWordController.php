@@ -8,8 +8,9 @@ use MoodMap\MapBundle\Entity\MoodWord;
 use MoodMap\MapBundle\Form\MoodWordType;
 
 /**
- * MoodWord controller.
+ * MoodWord Controller
  *
+ * @author Niels Garve <ng@mood-map.com>
  */
 class MoodWordController extends Controller
 {

@@ -10,8 +10,9 @@ use MoodMap\MapBundle\Form\RecommendationType;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Recommendation controller.
+ * Recommendation Controller
  *
+ * @author Philipp Nowinski <philipp@nowinski.de>
  */
 class RecommendationController extends Controller
 {
