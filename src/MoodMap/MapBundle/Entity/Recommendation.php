@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * MoodMap\MapBundle\Entity\Recommendation
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="MoodMap\MapBundle\Entity\RecommendationRepository")
+ * @ORM\Entity()
  *
  * @author Philipp Nowinski <pn@mood-map.com>
  */
